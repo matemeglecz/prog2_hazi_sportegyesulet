@@ -3,7 +3,7 @@
 
 #include <string>
 #include "meccs.h"
-#include "lista2.h"
+#include "lista.h"
 
 class Csapat{
     char* csapatnev;

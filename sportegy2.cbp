@@ -38,14 +38,13 @@
 		<Unit filename="datum.h" />
 		<Unit filename="foci.cpp" />
 		<Unit filename="foci.h" />
-		<Unit filename="gtest_lite.h" />
 		<Unit filename="interface.h" />
 		<Unit filename="kezilabda.cpp" />
 		<Unit filename="kezilabda.h" />
 		<Unit filename="kosarlabda.cpp" />
 		<Unit filename="kosarlabda.h" />
 		<Unit filename="lista.cpp" />
-		<Unit filename="lista2.h" />
+		<Unit filename="lista.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="meccs.cpp" />
 		<Unit filename="meccs.h" />

@@ -1,8 +1,8 @@
-#include "lista2.h"
+#include "lista.h"
 #include "meccs.h"
 
-template <typename T>
-void Lista<T>::add(T& ujadat){
+/*template <typename T>
+void Lista<T>::add(T ujadat){
     ListaElem *uj=new ListaElem;
     uj->adat=ujadat;
     uj->kov=NULL;
@@ -16,7 +16,7 @@ void Lista<T>::add(T& ujadat){
         }
         vege.elem->kov=uj;
     }
-}
+}*/
 
 template <typename T>
 void Lista<T>::torolElem(ListaElem* torlendo){

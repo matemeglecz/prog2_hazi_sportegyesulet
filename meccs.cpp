@@ -10,8 +10,8 @@ std::ostream& operator<<(std::ostream& os, const Meccs& m) {
 
 Meccs& Meccs::operator=(const Meccs& rhs){
     if(&rhs!=this){
-        delete[] ellenfel;
-        delete[] helyszin;
+        if(ellenfel!=NULL) delete[] ellenfel;
+        if(helyszin!=NULL) delete[] helyszin;
         ellenfel=new char[strlen(rhs.getEllenfel())+1];
         helyszin=new char[strlen(rhs.getHelyszin())+1];
         strcpy(ellenfel, rhs.getEllenfel());

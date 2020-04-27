@@ -95,12 +95,12 @@
 1588001110 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.cpp
 	"csapat.h"
 
-1588004144 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
+1588005964 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
 	<string>
 	"meccs.h"
-	"lista2.h"
+	"lista.h"
 
-1588004144 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.h
+1588008961 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.h
 	"string.h"
 	"datum.h"
 
@@ -131,18 +131,18 @@
 1588004144 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kosarlabda.h
 	"csapat.h"
 
-1588003422 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
-	"lista2.h"
+1588006746 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
+	"lista.h"
 	"meccs.h"
 
-1588003908 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
+1588008873 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
 	<iostream>
 	"csapat.h"
 	"foci.h"
 	"kosarlabda.h"
 	"kezilabda.h"
 	"gtest_lite.h"
-	"lista2.h"
+	"lista.h"
 	"memtrace.h"
 
 1556229777 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\gtest_lite.h
@@ -168,14 +168,17 @@
 	<algorithm>
 	<functional>
 
-1587923067 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.cpp
+1588007262 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.cpp
 	"meccs.h"
 
-1555013711 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.cpp
+1588006463 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<time.h>
 	<ctype.h>
 	"memtrace.h"
+
+1588008990 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
+	<iostream>
 

@@ -9,7 +9,8 @@ class Meccs{
     Datum datum;
     char* ellenfel;
 public:
-    Meccs(const char* hely, char* ellen, int ev, int honap, int nap, int ora, int perc) :datum(Datum(ev, honap, nap, ora, perc)) {
+    Meccs() :helyszin(NULL), ellenfel(NULL), datum(0,0,0,0,0) {}
+    Meccs(const char* hely, const char* ellen, int ev, int honap, int nap, int ora, int perc) :datum(Datum(ev, honap, nap, ora, perc)) {
         helyszin=new char[strlen(hely)+1];
         strcpy(helyszin, hely);
         ellenfel=new char[strlen(ellen)+1];
