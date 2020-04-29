@@ -16,6 +16,8 @@ public:
     int getNap() const{return nap;}
     int getOra() const{return ora;}
     int getPerc() const{return perc;}
+
+    bool operator==(Datum& rhs) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Datum& d);

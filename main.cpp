@@ -30,8 +30,29 @@ int main()
         EXPECT_STREQ("Pisti", f1.getMasodedzo())<<"nem jo a masodedzo";
     }ENDM
 
-    f1.getMeccsek().add(Meccs("BP", "Masik", 2010,12,12,12,12));
-    f1.getMeccsek().torol();
+    f1.getMeccsek().add(new Meccs("BP", "Masik", 2010,12,12,12,12));
+    f1.getMeccsek().add(new Meccs("BP", "Masik", 2010,12,12,12,12));
+    f1.getMeccsek().add(new Meccs("BP", "Masik", 2010,12,12,12,12));
+    f1.getMeccsek().add(new Meccs("BP", "Masik", 2010,12,12,12,12));
+    f1.getMeccsek().add(new Meccs("BP", "Masik", 2010,12,12,12,12)); //még nem mûködik a lista
+    //f1.getMeccsek().torol();
+
+    Meccs m1("BP", "Masik", 2010,12,12,12,12);
+
+    TEST(meccs, hely){
+        EXPECT_STREQ("BP", m1.getHelyszin())<<"nem jo a hely";
+    }ENDM
+
+    TEST(meccs, ellenfel){
+        EXPECT_STREQ("Masik", m1.getEllenfel())<<"nem jo az ellenfel";
+    }ENDM
+
+    TEST(meccs, date){
+        EXPECT_EQ(Datum(2010,12,12,12,12), m1.getDatum())<<"nem jo a datum";
+    }ENDM
+
+
+
 
     return 0;
 }

@@ -25,14 +25,10 @@ public:
     char* getEdzo() const{return edzo;}
     Lista<Meccs> getMeccsek() const {return meccsek;}
     Csapat& operator=(const Csapat& rhs);
-    void addMeccs(Meccs& uj);
+    void addMeccs(Meccs* uj);
     void torolMeccs(int torlendo);
 
-    virtual ~Csapat(){
-        delete[] csapatnev;
-        delete[] edzo;
-    }
-
+    virtual ~Csapat();
 };
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs);

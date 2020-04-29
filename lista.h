@@ -6,12 +6,13 @@ template <typename T>
 class Lista{
     struct ListaElem{
         ListaElem* kov;
-        T adat;
+        T* adat;
         ListaElem(ListaElem *p=NULL) :kov(p) {}
     };
     ListaElem* eleje;
+    size_t len;
 public:
-    Lista(ListaElem* eleje = NULL) :eleje(eleje) {}
+    Lista(ListaElem* eleje = NULL) :eleje(eleje), len(0) {}
     class Iterator{
         ListaElem* elem;
     public:
@@ -50,7 +51,7 @@ public:
             else throw "hibas";
         }
 
-        T& operator*() const {
+        T* operator*() const {
             if(elem != NULL) return (elem->adat);
             else throw "hibas";
         }
@@ -58,7 +59,26 @@ public:
 
     };
 
-    void torolElem(ListaElem* torlendo);
+    void torolElem(ListaElem* torlendo){
+        if(torlendo==NULL)
+            throw "hibas torles";
+        if(eleje==torlendo){
+            ListaElem* temp=eleje->kov;
+            delete eleje;
+            eleje=temp;
+        }
+        else{
+            ListaElem* mozgo=eleje;
+            while(mozgo->kov!=torlendo && mozgo!=NULL){
+                mozgo=mozgo->kov;
+            }
+            if(mozgo==NULL) throw "nincs ilyen elem";
+            mozgo->kov=torlendo->kov;
+            delete torlendo->adat;
+            delete torlendo;
+        }
+        --len;
+    }
 
     Iterator begin(){
         return Iterator(eleje);
@@ -68,18 +88,20 @@ public:
     }
 
     void torol(){
-        Iterator akt=eleje;
+        ListaElem* akt=eleje;
         while(akt!=NULL){
-            Iterator temp=akt++;
-            delete &akt;
+            ListaElem* temp=akt->kov;
+            delete akt->adat;
+            delete akt;
             akt=temp;
         }
         eleje = NULL;
+        len=0;
     }
 
     ~Lista() {torol();}
 
-    void add(T ujadat){
+    void add(T* ujadat){
         ListaElem *uj=new ListaElem;
         uj->adat=ujadat;
         uj->kov=NULL;
@@ -87,12 +109,20 @@ public:
             eleje=uj;
         }
         else{
-            Iterator vege;
-            for(Iterator it = eleje; it!=NULL; it++){
-                vege=it;
-            }
-            ++vege=uj;
+            ListaElem* vege=eleje;
+            while(vege->kov!=NULL)
+                vege=vege->kov;
+        vege->kov=uj;
         }
+        len++;
+    }
+
+    ListaElem* operator[](size_t hanyadik){
+        if(hanyadik>=len) throw "hibas indexeles";
+        ListaElem* akt=eleje;
+        for(size_t i; i<hanyadik; i++)
+            akt=akt->kov;
+        return akt;
     }
 
 
