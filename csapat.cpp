@@ -17,7 +17,7 @@ Csapat& Csapat::operator=(const Csapat& rhs){
 
 		meccsek.torol();
 		for (Lista<Meccs>::Iterator it = rhs.getMeccsek().begin(); it != NULL; ++it) {
-			meccsek.add(*it);
+			meccsek.add(&(*it));
 		}
     }
     return *this;
@@ -26,6 +26,8 @@ Csapat& Csapat::operator=(const Csapat& rhs){
 Csapat::~Csapat(){
         delete[] csapatnev;
         delete[] edzo;
+        if(meccsek.getLen()!=0) meccsek.torol();
+        std::cout << "csapatwtf" <<std::endl;
 }
 
 
@@ -35,6 +37,10 @@ void Csapat::addMeccs(Meccs* uj){
 
 void Csapat::torolMeccs(int torlendo){
     meccsek.torolElem(meccsek[torlendo-1]);
+}
 
-
+void Csapat::kiirMeccsek(){
+    for (Lista<Meccs>::Iterator it = meccsek.begin(); it != meccsek.end(); ++it) {
+        it->kiir();
+    }
 }

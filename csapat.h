@@ -16,7 +16,7 @@ public:
         strcpy(csapatnev, nev);
         edzo=new char[strlen(edzonev)+1];
         strcpy(edzo, edzonev);
-        meccsek=Lista<Meccs>(NULL);
+        //Lista<Meccs> meccsek(NULL);
     }
 
     virtual void kiir() = 0;
@@ -27,6 +27,7 @@ public:
     Csapat& operator=(const Csapat& rhs);
     void addMeccs(Meccs* uj);
     void torolMeccs(int torlendo);
+    void kiirMeccsek();
 
     virtual ~Csapat();
 };

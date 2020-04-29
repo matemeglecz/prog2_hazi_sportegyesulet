@@ -47,17 +47,40 @@ public:
         }
 
         T* operator->() const {
-            if(elem != NULL) return &(elem->adat);
+            if(elem != NULL) return (elem->adat);
             else throw "hibas";
         }
 
-        T* operator*() const {
-            if(elem != NULL) return (elem->adat);
+        T& operator*() const {
+            if(elem != NULL) return *(elem->adat);
             else throw "hibas";
         }
 
 
     };
+
+    Lista(const Lista& rhs){
+        if(rhs.eleje==NULL)
+            eleje=NULL;
+        else{
+            eleje=new ListaElem;
+            eleje->adat=new T;
+            *(eleje->adat)=*(rhs.eleje->adat);
+        }
+        ListaElem* akt=eleje;
+        ListaElem* mozgo=rhs.eleje->kov;
+        while(mozgo!=NULL){
+            akt->kov=new ListaElem;
+            akt=akt->kov;
+            akt->adat=new T;
+            *(akt->adat)=*(mozgo->adat);
+
+            mozgo=mozgo->kov;
+        }
+        akt->kov=NULL;
+        len=rhs.len;
+
+    }
 
     void torolElem(ListaElem* torlendo){
         if(torlendo==NULL)
@@ -97,6 +120,7 @@ public:
         }
         eleje = NULL;
         len=0;
+        std::cout<< "listatorles" << std::endl;
     }
 
     ~Lista() {torol();}
@@ -120,11 +144,12 @@ public:
     ListaElem* operator[](size_t hanyadik){
         if(hanyadik>=len) throw "hibas indexeles";
         ListaElem* akt=eleje;
-        for(size_t i; i<hanyadik; i++)
+        for(size_t i=0; i<hanyadik; i++)
             akt=akt->kov;
         return akt;
     }
 
+    size_t getLen() const{return len;}
 
 };
 

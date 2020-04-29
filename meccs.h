@@ -9,8 +9,7 @@ class Meccs{
     Datum datum;
     char* ellenfel;
 public:
-    //Meccs() :helyszin(NULL), ellenfel(NULL), datum(0,0,0,0,0) {}
-    Meccs(const char* hely, const char* ellen, int ev, int honap, int nap, int ora, int perc) :datum(Datum(ev, honap, nap, ora, perc)) {
+    Meccs(const char* hely = "", const char* ellen= "", int ev = 0, int honap = 0, int nap = 0, int ora = 0, int perc = 0) :datum(Datum(ev, honap, nap, ora, perc)) {
         helyszin=new char[strlen(hely)+1];
         strcpy(helyszin, hely);
         ellenfel=new char[strlen(ellen)+1];
@@ -24,6 +23,7 @@ public:
     ~Meccs(){
         delete[] helyszin;
         delete[] ellenfel;
+        std::cout << "wtf" <<std::endl;
     }
 
 };
