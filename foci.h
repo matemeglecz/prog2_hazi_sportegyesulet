@@ -12,10 +12,11 @@ public:
         strcpy(masodedzo, medzo);
     }
 
+    Foci& operator=(const Foci& rhs);
     Foci(const Foci& f){*this=f;}
 
     void kiir(std::ostream& os = std::cout);
-    Foci& operator=(const Foci& rhs);
+
     char* getMasodedzo() const {return masodedzo;}
     ~Foci() {
         delete[] masodedzo;

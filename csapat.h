@@ -16,7 +16,6 @@ public:
         strcpy(csapatnev, nev);
         edzo=new char[strlen(edzonev)+1];
         strcpy(edzo, edzonev);
-        //Lista<Meccs> meccsek(NULL);
     }
 
     Csapat(const Csapat& cs){*this=cs;}

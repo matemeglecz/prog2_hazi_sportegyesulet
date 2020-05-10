@@ -15,11 +15,11 @@ Csapat& Csapat::operator=(const Csapat& rhs){
         strcpy(edzo, rhs.getEdzo());
         strcpy(csapatnev, rhs.getNev());
         alapletszam=rhs.getLetszam();
-
-		meccsek.torol();
-		for (Lista<Meccs>::Iterator it = rhs.getMeccsek().begin(); it != NULL; ++it) {
-			meccsek.add(&(*it));
-		}
+        meccsek=rhs.getMeccsek();
+//		meccsek.torol();
+//		for (Lista<Meccs>::Iterator it = rhs.getMeccsek().begin(); it != NULL; ++it) {
+//			meccsek.add(&(*it));
+		//}
     }
     return *this;
 }

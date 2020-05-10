@@ -59,28 +59,35 @@ public:
         friend void Lista<T>::torolElem(Iterator& torlendoIt);
 
     };
+    Lista& operator=(const Lista& rhs){
+        if(&rhs!=this){
+            if(rhs.eleje==NULL)
+                eleje=NULL;
+            else{
+                torol();
+                eleje=new ListaElem;
+                eleje->adat=new T;
+                *(eleje->adat)=*(rhs.eleje->adat);
+
+            ListaElem* akt=eleje;
+            ListaElem* mozgo=rhs.eleje->kov;
+            while(mozgo!=NULL){
+                akt->kov=new ListaElem;
+                akt=akt->kov;
+                akt->adat=new T;
+                *(akt->adat)=*(mozgo->adat);
+
+                mozgo=mozgo->kov;
+            }
+            akt->kov=NULL;
+            len=rhs.len;
+            }
+        }
+        return *this;
+    }
 
     Lista(const Lista& rhs){
-        if(rhs.eleje==NULL)
-            eleje=NULL;
-        else{
-            eleje=new ListaElem;
-            eleje->adat=new T;
-            *(eleje->adat)=*(rhs.eleje->adat);
-        }
-        ListaElem* akt=eleje;
-        ListaElem* mozgo=rhs.eleje->kov;
-        while(mozgo!=NULL){
-            akt->kov=new ListaElem;
-            akt=akt->kov;
-            akt->adat=new T;
-            *(akt->adat)=*(mozgo->adat);
-
-            mozgo=mozgo->kov;
-        }
-        akt->kov=NULL;
-        len=rhs.len;
-
+        *this=rhs;
     }
 
     void torolElem(Iterator& torlendoIt){

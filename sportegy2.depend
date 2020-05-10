@@ -92,11 +92,11 @@
 1588003848 c:\projects\codeblocks\prog2\sportegy2\lista2.h
 	<iostream>
 
-1589117949 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.cpp
+1589121534 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.cpp
 	"csapat.h"
 	"meccs.h"
 
-1589119896 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
+1589122350 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
 	<string>
 	"meccs.h"
 	"lista.h"
@@ -118,7 +118,7 @@
 1589120899 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.cpp
 	"foci.h"
 
-1589120703 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.h
+1589121756 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.h
 	"csapat.h"
 
 1589117780 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kezilabda.cpp
@@ -136,7 +136,7 @@
 1588172038 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
 	"lista.h"
 
-1589120787 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
+1589122753 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
 	<iostream>
 	"csapat.h"
 	"foci.h"
@@ -182,7 +182,7 @@
 	<ctype.h>
 	"memtrace.h"
 
-1589120235 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
+1589122655 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
 	<iostream>
 
 1589120329 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.cpp
