@@ -11,13 +11,15 @@ class Csapat{
     char* edzo;
     Lista<Meccs> meccsek;
 public:
-    Csapat(const char* nev, int alapletszam, const char* edzonev) :alapletszam(alapletszam) {
+    Csapat(const char* nev = "", int alapletszam = 0, const char* edzonev = "") :alapletszam(alapletszam) {
         csapatnev=new char[strlen(nev)+1];
         strcpy(csapatnev, nev);
         edzo=new char[strlen(edzonev)+1];
         strcpy(edzo, edzonev);
         //Lista<Meccs> meccsek(NULL);
     }
+
+    Csapat(const Csapat& cs){*this=cs;}
 
     virtual void kiir(std::ostream& os = std::cout) = 0;
     char* getNev() const{return csapatnev;}

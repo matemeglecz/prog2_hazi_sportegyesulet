@@ -7,15 +7,19 @@
 class Foci :public Csapat{
     char* masodedzo;
 public:
-    Foci(const char* nev, int alapletszam,const char* edzonev,const char* medzo) :Csapat(nev, alapletszam, edzonev) {
+    Foci(const char* nev="", int alapletszam=0,const char* edzonev="",const char* medzo="") :Csapat(nev, alapletszam, edzonev) {
         masodedzo=new char[strlen(medzo)+1];
         strcpy(masodedzo, medzo);
     }
+
+    Foci(const Foci& f){*this=f;}
+
     void kiir(std::ostream& os = std::cout);
     Foci& operator=(const Foci& rhs);
     char* getMasodedzo() const {return masodedzo;}
     ~Foci() {
         delete[] masodedzo;
+        std::cout<<"focitorol"<<std::endl;
     }
 };
 

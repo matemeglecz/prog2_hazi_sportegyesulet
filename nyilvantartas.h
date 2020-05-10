@@ -12,9 +12,11 @@ public:
     void beolvas();
     int keresEskiir(const char* nev);
     void listaz();
-    void add(Csapat& uj);
+    void add(Csapat* uj);
     void torolElem(const char* nev, int hanyadik);
-    ~Nyilvantartas() {csapatok.torol();}
+    ~Nyilvantartas() {csapatok.torol();
+    std::cout<<"nyilvan torol"<<std::endl;
+    }
 
 };
 

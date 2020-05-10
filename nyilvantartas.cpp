@@ -6,8 +6,8 @@ void Nyilvantartas::mentes(){
     std::ofstream fout;
     fout.open("test.txt");
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
-        fout << (*it) << std::endl;
-
+        it->kiir(fout);
+        it->kiirMeccsek(fout);
     }
 
 }
@@ -20,8 +20,8 @@ void Nyilvantartas::listaz(){
     }
 }
 
-void Nyilvantartas::add(Csapat& uj){
-    csapatok.add(&uj);
+void Nyilvantartas::add(Csapat* uj){
+    csapatok.add(uj);
 }
 
 int Nyilvantartas::keresEskiir(const char* nev){

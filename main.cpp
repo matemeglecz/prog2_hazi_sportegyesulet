@@ -7,6 +7,7 @@
 #include "lista.h"
 #include "memtrace.h"
 #include "meccs.h"
+#include "nyilvantartas.h"
 
 
 using namespace std;
@@ -31,6 +32,8 @@ int main()
         EXPECT_STREQ("Pisti", f1.getMasodedzo())<<"nem jo a masodedzo";
     }ENDM
 
+    Foci f3=f1;
+    f3.kiir();
 
     Meccs m1("BP", "Masik", 2010,12,12,12,12);
     /*Meccs* m2=new Meccs;
@@ -54,6 +57,13 @@ int main()
     m1.kiir();
 
     if(f1.getMeccsek().getLen()!=0) std::cout<<"mitortenik"<<endl;
+
+    Nyilvantartas nyilv;
+    //for(int i=0; i< 10; i++)
+    Foci* f2=new Foci(f1);
+        nyilv.add(f2);
+
+    nyilv.mentes();
 
 
 
