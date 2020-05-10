@@ -1,7 +1,7 @@
 #include "meccs.h"
 
-void Meccs::kiir(){
-    std::cout << *this << std::endl;
+void Meccs::kiir(std::ostream& os){
+    os << *this << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Meccs& m) {

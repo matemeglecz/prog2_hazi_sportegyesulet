@@ -50,6 +50,7 @@
 		<Unit filename="meccs.h" />
 		<Unit filename="memtrace.cpp" />
 		<Unit filename="memtrace.h" />
+		<Unit filename="nyilvantartas.cpp" />
 		<Unit filename="nyilvantartas.h" />
 		<Extensions>
 			<code_completion />

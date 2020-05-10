@@ -1,7 +1,6 @@
 #ifndef NYILVANTARTAS_H_INCLUDED
 #define NYILVANTARTAS_H_INCLUDED
 
-
 #include "csapat.h"
 #include "lista.h"
 
@@ -14,7 +13,7 @@ public:
     int keresEskiir(const char* nev);
     void listaz();
     void add(Csapat& uj);
-    void torol(const char* nev, int hanyadik);
+    void torolElem(const char* nev, int hanyadik);
     ~Nyilvantartas() {csapatok.torol();}
 
 };

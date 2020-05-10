@@ -1,7 +1,7 @@
 #include "foci.h"
 
-void Foci::kiir(){
-    std::cout << "Foci: " << *this << std::endl;
+void Foci::kiir(std::ostream& os){
+    os << "Foci: " << *this << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Foci& k) {

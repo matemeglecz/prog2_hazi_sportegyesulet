@@ -19,7 +19,7 @@ public:
         //Lista<Meccs> meccsek(NULL);
     }
 
-    virtual void kiir() = 0;
+    virtual void kiir(std::ostream& os = std::cout) = 0;
     char* getNev() const{return csapatnev;}
     int getLetszam() const{return alapletszam;}
     char* getEdzo() const{return edzo;}
@@ -27,7 +27,7 @@ public:
     Csapat& operator=(const Csapat& rhs);
     void addMeccs(Meccs* uj);
     void torolMeccs(int torlendo);
-    void kiirMeccsek();
+    void kiirMeccsek(std::ostream& os = std::cout);
 
     virtual ~Csapat();
 };

@@ -7,7 +7,7 @@ class Kezilabda :public Csapat{
     int tamogatas;
 public:
     Kezilabda(const char* nev, int alapletszam, const char* edzonev, int tamogatas) :Csapat(nev, alapletszam, edzonev), tamogatas(tamogatas) {}
-    void kiir();
+    void kiir(std::ostream& os = std::cout);
     int getTamogatas() const{return tamogatas;}
     Kezilabda& operator=(const Kezilabda& rhs);
     ~Kezilabda() {}

@@ -11,7 +11,7 @@ public:
         masodedzo=new char[strlen(medzo)+1];
         strcpy(masodedzo, medzo);
     }
-    void kiir();
+    void kiir(std::ostream& os = std::cout);
     Foci& operator=(const Foci& rhs);
     char* getMasodedzo() const {return masodedzo;}
     ~Foci() {

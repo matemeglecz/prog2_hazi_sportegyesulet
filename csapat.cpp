@@ -1,4 +1,5 @@
 #include "csapat.h"
+#include "meccs.h"
 
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs) {
@@ -36,11 +37,16 @@ void Csapat::addMeccs(Meccs* uj){
 }
 
 void Csapat::torolMeccs(int torlendo){
-    meccsek.torolElem(meccsek[torlendo-1]);
+    if((unsigned)torlendo > meccsek.getLen()) throw "hibas torles";
+    Lista<Meccs>::Iterator it=meccsek.begin();
+    for(int i=0; i<torlendo; i++){
+        it++;
+    }
+    meccsek.torolElem(it);
 }
 
-void Csapat::kiirMeccsek(){
+void Csapat::kiirMeccsek(std::ostream& os){
     for (Lista<Meccs>::Iterator it = meccsek.begin(); it != meccsek.end(); ++it) {
-        it->kiir();
+        it->kiir(os);
     }
 }

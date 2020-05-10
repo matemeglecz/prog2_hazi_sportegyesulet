@@ -14,6 +14,7 @@ class Lista{
 public:
     Lista(ListaElem* eleje = NULL) :eleje(eleje), len(0) {}
     class Iterator{
+    protected:
         ListaElem* elem;
     public:
         Iterator(ListaElem* elem=NULL) :elem(elem) {};
@@ -55,7 +56,7 @@ public:
             if(elem != NULL) return *(elem->adat);
             else throw "hibas";
         }
-
+        friend void Lista<T>::torolElem(Iterator& torlendoIt);
 
     };
 
@@ -82,7 +83,8 @@ public:
 
     }
 
-    void torolElem(ListaElem* torlendo){
+    void torolElem(Iterator& torlendoIt){
+        ListaElem* torlendo=torlendoIt.elem;
         if(torlendo==NULL)
             throw "hibas torles";
         if(eleje==torlendo){
@@ -141,13 +143,13 @@ public:
         len++;
     }
 
-    ListaElem* operator[](size_t hanyadik){
+    /*ListaElem* operator[](size_t hanyadik){
         if(hanyadik>=len) throw "hibas indexeles";
         ListaElem* akt=eleje;
         for(size_t i=0; i<hanyadik; i++)
             akt=akt->kov;
         return akt;
-    }
+    }*/
 
     size_t getLen() const{return len;}
 

@@ -1,7 +1,7 @@
 #include "kosarlabda.h"
 
-void Kosarlabda::kiir(){
-    std::cout << "Kosarlabda: " << *this << std::endl;
+void Kosarlabda::kiir(std::ostream& os){
+    os << "Kosarlabda: " << *this << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Kosarlabda& k) {

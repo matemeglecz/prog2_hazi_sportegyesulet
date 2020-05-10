@@ -1,7 +1,7 @@
 #include "kezilabda.h"
 
-void Kezilabda::kiir(){
-    std::cout << "Kezilabda: " << *this << std::endl;
+void Kezilabda::kiir(std::ostream& os){
+    os << "Kezilabda: " << *this << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Kezilabda& k) {

@@ -3,6 +3,7 @@
 
 #include "string.h"
 #include "datum.h"
+#include <iostream>
 
 class Meccs{
     char* helyszin;
@@ -15,7 +16,7 @@ public:
         ellenfel=new char[strlen(ellen)+1];
         strcpy(ellenfel, ellen);
     }
-    void kiir();
+    void kiir(std::ostream& os = std::cout);
     char* getHelyszin() const{return helyszin;}
     Datum getDatum() const{return datum;}
     char* getEllenfel() const{return ellenfel;}
