@@ -2,7 +2,7 @@
 #include "meccs.h"
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs) {
-    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo() << "Meccsek száma: " << cs.getMeccsek().getLen();
+    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo() << " Meccsek szama: " << cs.getMeccsek().getLen();
 }
 
 void Csapat::kiir(std::ostream& os){
@@ -11,12 +11,14 @@ void Csapat::kiir(std::ostream& os){
 
 Csapat& Csapat::operator=(const Csapat& rhs){
     if(&rhs!=this){
-        delete[] csapatnev;
-        delete[] edzo;
-        csapatnev=new char[strlen(rhs.getNev())+1];
-        edzo=new char[strlen(rhs.getEdzo())+1];
-        strcpy(edzo, rhs.getEdzo());
-        strcpy(csapatnev, rhs.getNev());
+//        delete[] csapatnev;
+//        delete[] edzo;
+//        csapatnev=new char[strlen(rhs.getNev())+1];
+//        edzo=new char[strlen(rhs.getEdzo())+1];
+//        strcpy(edzo, rhs.getEdzo());
+//        strcpy(csapatnev, rhs.getNev());
+        csapatnev=rhs.getNev();
+        edzo=rhs.getEdzo();
         alapletszam=rhs.getLetszam();
         meccsek=rhs.getMeccsek();
 //		meccsek.torol();
@@ -28,8 +30,8 @@ Csapat& Csapat::operator=(const Csapat& rhs){
 }
 
 Csapat::~Csapat(){
-        delete[] csapatnev;
-        delete[] edzo;
+//        delete[] csapatnev;
+//        delete[] edzo;
         if(meccsek.getLen()!=0) meccsek.torol();
         std::cout << "csapatwtf" <<std::endl;
 }

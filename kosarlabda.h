@@ -2,11 +2,13 @@
 #define KOSARLABDA_H_INCLUDED
 
 #include "csapat.h"
+#include <string>
+using namespace std;
 
 class Kosarlabda :public Csapat{
     int pompomletszam;
 public:
-    Kosarlabda(const char* nev, int alapletszam, const char* edzonev, int pomletszam) :Csapat(nev, alapletszam, edzonev), pompomletszam(pomletszam) {}
+    Kosarlabda(string nev, int alapletszam, string edzonev, int pomletszam) :Csapat(nev, alapletszam, edzonev), pompomletszam(pomletszam) {}
     void kiir(std::ostream& os = std::cout);
     int getPomletszam() const{return pompomletszam;}
     Kosarlabda& operator=(const Kosarlabda& rhs);

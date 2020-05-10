@@ -1,28 +1,29 @@
 #ifndef MECCS_H_INCLUDED
 #define MECCS_H_INCLUDED
 
-#include "string.h"
+#include <string>
 #include "datum.h"
+using namespace std;
 
 class Meccs{
-    char* helyszin;
+    string helyszin;
     Datum datum;
-    char* ellenfel;
+    string ellenfel;
 public:
-    Meccs(const char* hely = "", const char* ellen= "", int ev = 0, int honap = 0, int nap = 0, int ora = 0, int perc = 0) :datum(Datum(ev, honap, nap, ora, perc)) {
-        helyszin=new char[strlen(hely)+1];
-        strcpy(helyszin, hely);
-        ellenfel=new char[strlen(ellen)+1];
-        strcpy(ellenfel, ellen);
+    Meccs(string hely = "", string ellen= "", int ev = 0, int honap = 0, int nap = 0, int ora = 0, int perc = 0) :helyszin(hely), datum(Datum(ev, honap, nap, ora, perc)), ellenfel(ellen) {
+//        helyszin=new char[strlen(hely)+1];
+//        strcpy(helyszin, hely);
+//        ellenfel=new char[strlen(ellen)+1];
+//        strcpy(ellenfel, ellen);
     }
     void kiir(std::ostream& os=std::cout);
-    char* getHelyszin() const{return helyszin;}
+    string getHelyszin() const{return helyszin;}
     Datum getDatum() const{return datum;}
-    char* getEllenfel() const{return ellenfel;}
+    string getEllenfel() const{return ellenfel;}
     Meccs& operator=(const Meccs& rhs);
     ~Meccs(){
-        delete[] helyszin;
-        delete[] ellenfel;
+//        delete[] helyszin;
+//        delete[] ellenfel;
         std::cout << "wtf" <<std::endl;
     }
 

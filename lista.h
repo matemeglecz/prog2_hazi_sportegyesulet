@@ -12,7 +12,8 @@ class Lista{
     ListaElem* eleje;
     size_t len;
 public:
-    Lista(ListaElem* eleje = NULL) :eleje(eleje), len(0) {}
+    Lista() :eleje(NULL) {len=0;}
+    //Lista(ListaElem* eleje = NULL) :eleje(eleje), len(0) {}
     class Iterator{
     protected:
         ListaElem* elem;
@@ -81,9 +82,9 @@ public:
                 mozgo=mozgo->kov;
             }
             akt->kov=NULL;
-            len=rhs.len;
             }
         }
+        len=rhs.len;
         return *this;
     }
 
@@ -131,7 +132,7 @@ public:
         }
         eleje = NULL;
         len=0;
-        std::cout<< "listatorles" << std::endl;
+        //std::cout<< "listatorles" << std::endl;
     }
 
     ~Lista() {torol();}

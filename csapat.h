@@ -4,28 +4,29 @@
 #include <string>
 #include "meccs.h"
 #include "lista.h"
+#include <string>
 
 class Csapat{
-    char* csapatnev;
+    std::string csapatnev;
     int alapletszam;
-    char* edzo;
+    std::string edzo;
     Lista<Meccs> meccsek;
 public:
-    Csapat(const char* nev = "", int alapletszam = 0, const char* edzonev = "") :alapletszam(alapletszam) {
-        csapatnev=new char[strlen(nev)+1];
-        strcpy(csapatnev, nev);
-        edzo=new char[strlen(edzonev)+1];
-        strcpy(edzo, edzonev);
+    Csapat(std::string nev = "", int alapletszam = 0, std::string edzonev = "") :csapatnev(nev), alapletszam(alapletszam), edzo(edzonev) {
+//        csapatnev=new char[strlen(nev)+1];
+//        strcpy(csapatnev, nev);
+//        edzo=new char[strlen(edzonev)+1];
+//        strcpy(edzo, edzonev);
     }
 
 
-    Csapat(const Csapat& cs){*this=cs;}
+    //Csapat(const Csapat& cs){*this=cs;}
 
     virtual void kiir(std::ostream& os = std::cout);
 
-    char* getNev() const{return csapatnev;}
+    std::string getNev() const{return csapatnev;}
     int getLetszam() const{return alapletszam;}
-    char* getEdzo() const{return edzo;}
+    std::string getEdzo() const{return edzo;}
     Lista<Meccs> getMeccsek() const {return meccsek;}
     Csapat& operator=(const Csapat& rhs);
     void addMeccs(Meccs* uj);

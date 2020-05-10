@@ -61,21 +61,20 @@ int main()
     Nyilvantartas nyilv;
     //for(int i=0; i< 10; i++)
     Nyilvantartas ny1;
-    ny1.beolvas("test.txt");
+    nyilv.beolvas("test.txt");
 
-
-//    char* nev="ehhh";
-//    char* edzo="uhhh";
-//    int letszam=2;
-//    char* medzo="kkkk";
-//    nyilv.add(new Foci(nev, letszam, edzo, medzo));
+    string nev="ehhh";
+    string edzo="uhhh";
+    int letszam=2;
+    string medzo="kkkk";
+    //nyilv.add(new Foci(nev, letszam, edzo, medzo));
 //    std::cout<<"faszom";
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,13));
+//    nyilv.addMeccs(2, new Meccs("BP", "Masik", 2010,12,12,12,13));
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,14));
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,15));
 //
-//    nyilv.mentes("test.txt");
+    nyilv.mentes("test.txt");
 //    nyilv.listaz();
 //
 //

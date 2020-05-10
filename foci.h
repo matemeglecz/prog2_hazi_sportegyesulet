@@ -1,15 +1,16 @@
 #ifndef FOCI_H_INCLUDED
 #define FOCI_H_INCLUDED
 
+#include <string>
 #include "csapat.h"
 //#include "lista.h"
 
 class Foci :public Csapat{
-    char* masodedzo;
+     std::string masodedzo;
 public:
-    Foci(const char* nev="", int alapletszam=0,const char* edzonev="",const char* medzo="") :Csapat(nev, alapletszam, edzonev) {
-        masodedzo=new char[strlen(medzo)+1];
-        strcpy(masodedzo, medzo);
+    Foci(std::string nev="", int alapletszam=0,std::string edzonev="",std::string medzo="") :Csapat(nev, alapletszam, edzonev), masodedzo(medzo) {
+        //masodedzo=new char[strlen(medzo)+1];
+        //strcpy(masodedzo, medzo);
     }
 
     Foci& operator=(const Foci& rhs);
@@ -17,9 +18,9 @@ public:
 
     void kiir(std::ostream& os = std::cout);
 
-    char* getMasodedzo() const {return masodedzo;}
+    std::string getMasodedzo() const {return masodedzo;}
     ~Foci() {
-        delete[] masodedzo;
+        //delete[] masodedzo;
         std::cout<<"focitorol"<<std::endl;
     }
 };
