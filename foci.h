@@ -13,7 +13,7 @@ public:
     }
 
     Foci& operator=(const Foci& rhs);
-    Foci(const Foci& f){*this=f;}
+    //Foci(const Foci& f){*this=f;}
 
     void kiir(std::ostream& os = std::cout);
 

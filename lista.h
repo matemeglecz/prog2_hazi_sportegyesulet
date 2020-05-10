@@ -56,6 +56,7 @@ public:
             if(elem != NULL) return *(elem->adat);
             else throw "hibas";
         }
+
         friend void Lista<T>::torolElem(Iterator& torlendoIt);
 
     };
@@ -87,6 +88,7 @@ public:
     }
 
     Lista(const Lista& rhs){
+        eleje=NULL;
         *this=rhs;
     }
 
@@ -136,6 +138,8 @@ public:
 
     void add(T* ujadat){
         ListaElem *uj=new ListaElem;
+//        uj->adat=new T;
+//        *(uj->adat)=*(ujadat);
         uj->adat=ujadat;
         uj->kov=NULL;
         if(eleje==NULL){
@@ -150,13 +154,13 @@ public:
         len++;
     }
 
-    /*ListaElem* operator[](size_t hanyadik){
+    T* operator[](size_t hanyadik){
         if(hanyadik>=len) throw "hibas indexeles";
         ListaElem* akt=eleje;
         for(size_t i=0; i<hanyadik; i++)
             akt=akt->kov;
-        return akt;
-    }*/
+        return akt->adat;
+    }
 
     size_t getLen() const{return len;}
 

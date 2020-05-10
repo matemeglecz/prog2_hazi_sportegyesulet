@@ -92,53 +92,51 @@
 1588003848 c:\projects\codeblocks\prog2\sportegy2\lista2.h
 	<iostream>
 
-1589121534 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.cpp
+1589139383 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.cpp
 	"csapat.h"
 	"meccs.h"
 
-1589122350 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
+1589139383 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\csapat.h
 	<string>
 	"meccs.h"
 	"lista.h"
 
-1589117650 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.h
+1589124119 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.h
 	"string.h"
 	"datum.h"
-	<iostream>
 
-1588010341 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\datum.h
+1589118056 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\datum.h
 	"iostream"
 
 1588003848 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista2.h
 	<iostream>
 
-1588010354 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\datum.cpp
+1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\datum.cpp
 	"datum.h"
 
-1589120899 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.cpp
+1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.cpp
 	"foci.h"
 
-1589121756 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.h
+1589133600 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\foci.h
 	"csapat.h"
 
-1589117780 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kezilabda.cpp
+1589131871 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kezilabda.cpp
 	"kezilabda.h"
 
-1589117762 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kezilabda.h
+1589131871 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kezilabda.h
 	"csapat.h"
 
-1589117809 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kosarlabda.cpp
+1589131871 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kosarlabda.cpp
 	"kosarlabda.h"
 
-1589117757 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kosarlabda.h
+1589131871 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\kosarlabda.h
 	"csapat.h"
 
-1588172038 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
+1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
 	"lista.h"
 
-1589122753 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
+1589138167 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
 	<iostream>
-	"csapat.h"
 	"foci.h"
 	"kosarlabda.h"
 	"kezilabda.h"
@@ -148,7 +146,7 @@
 	"meccs.h"
 	"nyilvantartas.h"
 
-1556229777 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\gtest_lite.h
+1589118056 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\gtest_lite.h
 	<iostream>
 	<cassert>
 	<cmath>
@@ -158,7 +156,7 @@
 	<fstream>
 	"memtrace.h"
 
-1555013711 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.h
+1589118056 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.h
 	<new>
 	<cstdio>
 	<stdlib.h>
@@ -171,10 +169,10 @@
 	<algorithm>
 	<functional>
 
-1589117815 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.cpp
+1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\meccs.cpp
 	"meccs.h"
 
-1588006463 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.cpp
+1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\memtrace.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -182,15 +180,15 @@
 	<ctype.h>
 	"memtrace.h"
 
-1589122655 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
+1589134018 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
 	<iostream>
 
-1589120329 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.cpp
+1589138724 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.cpp
 	"nyilvantartas.h"
 	"lista.h"
 	<fstream>
 
-1589120329 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.h
+1589138103 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.h
 	"csapat.h"
 	"lista.h"
 

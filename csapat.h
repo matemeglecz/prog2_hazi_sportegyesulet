@@ -18,9 +18,11 @@ public:
         strcpy(edzo, edzonev);
     }
 
+
     Csapat(const Csapat& cs){*this=cs;}
 
-    virtual void kiir(std::ostream& os = std::cout) = 0;
+    virtual void kiir(std::ostream& os = std::cout);
+
     char* getNev() const{return csapatnev;}
     int getLetszam() const{return alapletszam;}
     char* getEdzo() const{return edzo;}
@@ -29,10 +31,11 @@ public:
     void addMeccs(Meccs* uj);
     void torolMeccs(int torlendo);
     void kiirMeccsek(std::ostream& os = std::cout);
-
+    //friend std::istream& operator>>(std::istream& is, const Csapat& cs);
     virtual ~Csapat();
 };
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs);
+//std::istream& operator>>(std::istream& is, const Csapat& cs);
 
 #endif // CSAPAT_H_INCLUDED

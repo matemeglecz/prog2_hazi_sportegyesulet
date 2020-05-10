@@ -1,5 +1,4 @@
 #include <iostream>
-#include "csapat.h"
 #include "foci.h"
 #include "kosarlabda.h"
 #include "kezilabda.h"
@@ -14,8 +13,8 @@ using namespace std;
 
 int main()
 {
-   Foci f1("Focika", 21, "Jani", "Pisti");
-    f1.kiir();
+//   Foci f1("Focika", 21, "Jani", "Pisti");
+//    f1.kiir();
 //    TEST(foci, nev){
 //        EXPECT_STREQ("Focika", f1.getNev())<<"nem jo a nev";
 //    }ENDM
@@ -32,9 +31,9 @@ int main()
 //        EXPECT_STREQ("Pisti", f1.getMasodedzo())<<"nem jo a masodedzo";
 //    }ENDM
 //
-   Foci f3=f1;
-   std::cout<<"kesz";
-   f3.kiir();
+////   Foci f3=f1;
+////   std::cout<<"kesz";
+////   f3.kiir();
 //
 //    Meccs m1("BP", "Masik", 2010,12,12,12,12);
 //    /*Meccs* m2=new Meccs;
@@ -58,13 +57,28 @@ int main()
 //    m1.kiir();
 //
 //    if(f1.getMeccsek().getLen()!=0) std::cout<<"mitortenik"<<endl;
+
+    Nyilvantartas nyilv;
+    //for(int i=0; i< 10; i++)
+    Nyilvantartas ny1;
+    ny1.beolvas("test.txt");
+
+
+//    char* nev="ehhh";
+//    char* edzo="uhhh";
+//    int letszam=2;
+//    char* medzo="kkkk";
+//    nyilv.add(new Foci(nev, letszam, edzo, medzo));
+//    std::cout<<"faszom";
+//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,12));
+//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,13));
+//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,14));
+//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,15));
 //
-//    Nyilvantartas nyilv;
-//    //for(int i=0; i< 10; i++)
-//    Foci* f2=new Foci(f1);
-//        nyilv.add(f2);
+//    nyilv.mentes("test.txt");
+//    nyilv.listaz();
 //
-//    nyilv.mentes();
+//
 //
 //
 //
@@ -79,7 +93,7 @@ int main()
 //    TEST(meccs, ellenfel){
 //        EXPECT_STREQ("Masik", m1.getEllenfel())<<"nem jo az ellenfel";
 //    }ENDM
-//
+
 //    TEST(meccs, date){
 //        EXPECT_EQ(Datum(2010,12,12,12,12), m1.getDatum())<<"nem jo a datum";
 //    }ENDM

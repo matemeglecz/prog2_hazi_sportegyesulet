@@ -1,9 +1,12 @@
 #include "csapat.h"
 #include "meccs.h"
 
-
 std::ostream& operator<<(std::ostream& os, const Csapat& cs) {
-    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo();
+    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo() << "Meccsek száma: " << cs.getMeccsek().getLen();
+}
+
+void Csapat::kiir(std::ostream& os){
+    os << (*this) << std::endl;
 }
 
 Csapat& Csapat::operator=(const Csapat& rhs){
@@ -50,3 +53,5 @@ void Csapat::kiirMeccsek(std::ostream& os){
         it->kiir(os);
     }
 }
+
+
