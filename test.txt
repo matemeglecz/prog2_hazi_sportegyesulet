@@ -1,8 +1,8 @@
-8
+9
 Foci: yeee haaaw, Letszam: 2, Edzo: uhhh , Masodedzo: kkkk
 2
 1. Ellenfel: Masik, Helyszin: BP, Datum: 2010.12.12. 12:12
-2. Ellenfel: xd xd, Helyszin: pont ott, Datum: 2010.30.12. 30:20
+2. Ellenfel: xd xd, Helyszin: pont ott, Datum: 2010.10.12. 10:20
 Foci: Falabuak sc, Letszam: 40, Edzo: jani ba, Masodedzo: sanya ba
 0
 Foci: yeee haaaw, Letszam: 4, Edzo: lala , Masodedzo: kkkk
@@ -18,4 +18,6 @@ Kezilabda: 6ahs, Letszam: 6, Edzo: ajs7, tamogatas: 770
 Kosarlabda: fff, Letszam: 3, Edzo: fff, Pompom csapat letszama: 5
 0
 Kezilabda: asdf, Letszam: 324253, Edzo: sdfasfgafh, tamogatas: 123512
+0
+Kosarlabda: kosar csapat, Letszam: 1, Edzo: adsf, Pompom csapat letszama: 123
 0

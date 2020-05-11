@@ -141,7 +141,7 @@
 /// https://cpptalk.wordpress.com/2009/09/12/substitution-failure-is-not-an-error-2
 /// Használat:
 /// CREATE_Has_(size)
-/// ... if (_Has_size<std::string>::member)...
+/// ... if (Has_size<std::string>::member)...
 #define CREATE_Has_(X) \
 template<typename T> struct _Has_##X {  \
     struct Fallback { int X; };         \

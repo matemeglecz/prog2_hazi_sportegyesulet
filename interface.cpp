@@ -102,7 +102,10 @@ int Interface::listCsapat(Nyilvantartas& nyilv){
         }
         else if((unsigned)valasztas <=nyilv.getLen()){
             allapot=Allapotok::meccslistaz;
-        } else allapot=Allapotok::csapatlistaz;
+        } else{
+            allapot=Allapotok::csapatlistaz;
+            cout << "Ilyen lehetoseg nincs, probalja ujra" << endl;
+        }
     }
     return valasztas;
 }
@@ -127,7 +130,7 @@ void Interface::listMeccs(int hanyadik, Nyilvantartas& nyilv){
             case(2):
                 allapot=Allapotok::meccstorol; break;
             default:
-                cout << "Ilyen lehetoseg nincs, probalja ujra" << endl; break;
+                cout << "Ilyen lehetoseg nincs, probalja ujra!" << endl; break;
         }
 }
 
@@ -275,12 +278,14 @@ void Interface::deleteCsapat(Nyilvantartas& nyilv){
     getline(cin, torolnev);
     vonalhuz();
     int talalat=nyilv.keresEskiir(torolnev);
-    vonalhuz();
-    if(talalat==0)
+    if(talalat==0){
         cout << "Nincs ilyen csapat" << endl;
-    else if(talalat==1)
+        vonalhuz();}
+    else if(talalat==1){
         nyilv.torolElem(torolnev);
+        vonalhuz();}
     else{
+        vonalhuz();
         int valasztas;
         while(valasztas>talalat){
             cout << "Valassza a torolni kivant csapatot!" << endl;

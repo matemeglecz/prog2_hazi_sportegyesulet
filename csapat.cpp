@@ -29,7 +29,7 @@ void Csapat::addMeccs(Meccs* uj){
 void Csapat::torolMeccs(int torlendo){
     if((unsigned)torlendo > meccsek.getLen()) throw "hibas torles";
     Lista<Meccs>::Iterator it=meccsek.begin();
-    for(int i=0; i<torlendo; i++){
+    for(int i=0; i<torlendo-1; i++){
         it++;
     }
     meccsek.torolElem(it);

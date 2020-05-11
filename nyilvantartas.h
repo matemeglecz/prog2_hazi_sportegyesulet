@@ -3,7 +3,7 @@
 
 
 #include "csapat.h"
-#include "lista.h"
+#include "lista.hpp"
 #include <string>
 using namespace std;
 
@@ -23,8 +23,6 @@ public:
     void kiirMeccs(int hanyadik);
     size_t getLen() {return csapatok.getLen();}
     ~Nyilvantartas() {csapatok.torol();}
-
-
 };
 
 

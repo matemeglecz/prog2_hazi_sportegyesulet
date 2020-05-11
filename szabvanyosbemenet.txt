@@ -1,0 +1,39 @@
+2
+1
+Foci csapat
+21
+Janos bacsi
+Gizi neni
+2
+2
+Kosar csapat
+17
+kosar edzo
+20
+2
+3
+Kezi csapat
+30
+kezi edzo
+50000000
+3
+Foci csapat
+4
+Kosar csapat
+1
+1
+1
+Veszelyes ellenfel
+Budapest
+2020
+10
+10
+13
+30
+0
+1
+1
+2
+1
+0
+5

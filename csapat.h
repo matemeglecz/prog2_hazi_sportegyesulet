@@ -3,7 +3,7 @@
 
 #include <string>
 #include "meccs.h"
-#include "lista.h"
+#include "lista.hpp"
 #include <string>
 
 class Csapat{

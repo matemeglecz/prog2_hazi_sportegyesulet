@@ -1,5 +1,5 @@
 #include "nyilvantartas.h"
-#include "lista.h"
+#include "lista.hpp"
 #include <fstream>
 #include <string>
 #include "csapat.h"
@@ -10,6 +10,10 @@
 void Nyilvantartas::mentes(const char* file){
     std::ofstream fout;
     fout.open(file);
+    if (!fout) {
+        fout.close();
+        throw "Nem sikerult megnyitni a fajlt.";
+    }
     fout << csapatok.getLen() << std::endl;
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
         it->kiir(fout);
@@ -22,8 +26,16 @@ void Nyilvantartas::mentes(const char* file){
 void Nyilvantartas::beolvas(const char* file){
     std::ifstream fin;
     fin.open(file);
+    if (!fin) {
+        fin.close();
+        throw "Nem sikerult megnyitni a fajlt.";
+    }
+    if(fin.peek() == std::ifstream::traits_type::eof()){
+        fin.close();
+        return;
+    }
     std::string tipus, nev, edzo;
-    int letszam, meccsekszama, csapatokszama;
+    int meccsekszama, csapatokszama;
     fin >> csapatokszama;
     for(int j=0; j<csapatokszama; j++){
         fin >> tipus;
@@ -49,8 +61,6 @@ void Nyilvantartas::beolvas(const char* file){
             addMeccs(csapatok.getLen(), mp);
         }
     }
-    //listaz();
-
     fin.close();
 }
 
@@ -90,7 +100,7 @@ void Nyilvantartas::torolElem(const std::string nev, int hanyadik){
 }
 
 void Nyilvantartas::addMeccs(int hanyadik, Meccs* uj){
-    if(hanyadik > csapatok.getLen()) throw "hibas meccs hozzaadas";
+    if((unsigned)hanyadik > csapatok.getLen()) throw "hibas meccs hozzaadas";
     Lista<Csapat>::Iterator it=csapatok.begin();
     for(int i=0; i<hanyadik-1; i++){
         it++;
@@ -99,7 +109,7 @@ void Nyilvantartas::addMeccs(int hanyadik, Meccs* uj){
 }
 
 void Nyilvantartas::kiirMeccs(int hanyadik){
-    if(hanyadik > csapatok.getLen()) throw "hibas meccs sorszam";
+    if((unsigned)hanyadik > csapatok.getLen()) throw "hibas meccs sorszam";
     Lista<Csapat>::Iterator it=csapatok.begin();
     for(int i=0; i<hanyadik-1; i++){
         it++;
@@ -108,7 +118,7 @@ void Nyilvantartas::kiirMeccs(int hanyadik){
 }
 
 void Nyilvantartas::torolMeccs(int csapat, int meccs){
-    if(csapat > csapatok.getLen()) throw "hibas meccs sorszam";
+    if((unsigned)csapat > csapatok.getLen()) throw "hibas csapat sorszam";
     Lista<Csapat>::Iterator it=csapatok.begin();
     for(int i=0; i<csapat-1; i++){
         it++;
