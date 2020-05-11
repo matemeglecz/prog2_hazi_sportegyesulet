@@ -21,14 +21,16 @@ public:
     Datum getDatum() const{return datum;}
     string getEllenfel() const{return ellenfel;}
     Meccs& operator=(const Meccs& rhs);
+    friend std::istream& operator>>(std::istream& is, Meccs& m);
     ~Meccs(){
 //        delete[] helyszin;
 //        delete[] ellenfel;
-        std::cout << "wtf" <<std::endl;
+        //std::cout << "wtf" <<std::endl;
     }
 
 };
 
 std::ostream& operator<<(std::ostream& os, const Meccs& m);
+std::istream& operator>>(std::istream& is, Meccs& m);
 
 #endif // MECCS_H_INCLUDED

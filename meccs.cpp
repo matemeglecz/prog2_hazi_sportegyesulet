@@ -22,3 +22,23 @@ Meccs& Meccs::operator=(const Meccs& rhs){
     }
     return *this;
 }
+
+std::istream& operator>>(std::istream& is, Meccs& m){
+    is.ignore(10, ':');
+    is >> m.ellenfel;
+    is.ignore(10, ':');
+    is >> m.helyszin;
+    is.ignore(6, ':');
+    int ev, ora, perc, honap, nap;
+    is >> ev;
+    is.ignore(1, '.');
+    is >> honap;
+    is.ignore(1, '.');
+    is >> nap;
+    is.ignore(2, ' ');
+    is >> ora;
+    is.ignore(1, ':');
+    is >> perc;
+    m.datum=Datum(ev,honap, nap, ora, perc);
+    return is;
+}

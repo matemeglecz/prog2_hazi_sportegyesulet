@@ -15,3 +15,10 @@ Kezilabda& Kezilabda::operator=(const Kezilabda& rhs){
     }
     return *this;
 }
+
+std::istream& operator>>(std::istream& is, Kezilabda& k){
+    is >> (Csapat&)k;
+    is.ignore(10, ':');
+    is >> k.tamogatas;
+    return is;
+}

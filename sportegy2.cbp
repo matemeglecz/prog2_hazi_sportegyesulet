@@ -38,6 +38,7 @@
 		<Unit filename="datum.h" />
 		<Unit filename="foci.cpp" />
 		<Unit filename="foci.h" />
+		<Unit filename="interface.cpp" />
 		<Unit filename="interface.h" />
 		<Unit filename="kezilabda.cpp" />
 		<Unit filename="kezilabda.h" />

@@ -23,8 +23,11 @@ public:
         //delete[] masodedzo;
         std::cout<<"focitorol"<<std::endl;
     }
+
+    friend std::istream& operator>>(std::istream& is, Foci& f);
 };
 
 std::ostream& operator<<(std::ostream& os, const Foci& k);
+std::istream& operator>>(std::istream& is, Foci& f);
 
 #endif // FOCI_H_INCLUDED

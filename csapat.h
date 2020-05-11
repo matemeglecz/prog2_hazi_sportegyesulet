@@ -32,11 +32,11 @@ public:
     void addMeccs(Meccs* uj);
     void torolMeccs(int torlendo);
     void kiirMeccsek(std::ostream& os = std::cout);
-    //friend std::istream& operator>>(std::istream& is, const Csapat& cs);
+    friend std::istream& operator>>(std::istream& is, Csapat& cs);
     virtual ~Csapat();
 };
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs);
-//std::istream& operator>>(std::istream& is, const Csapat& cs);
+std::istream& operator>>(std::istream& is, Csapat& cs);
 
 #endif // CSAPAT_H_INCLUDED

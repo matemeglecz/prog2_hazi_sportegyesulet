@@ -15,3 +15,10 @@ Kosarlabda& Kosarlabda::operator=(const Kosarlabda& rhs){
     }
     return *this;
 }
+
+std::istream& operator>>(std::istream& is, Kosarlabda& k){
+    is >> (Csapat&)k;
+    is.ignore(23, ':');
+    is >> k.pompomletszam;
+    return is;
+}

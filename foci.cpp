@@ -18,3 +18,10 @@ Foci& Foci::operator=(const Foci& rhs){
     }
     return *this;
 }
+
+std::istream& operator>>(std::istream& is, Foci& f){
+    is >> (Csapat&)f;
+    is.ignore(12, ':');
+    is >> f.masodedzo;
+    return is;
+}

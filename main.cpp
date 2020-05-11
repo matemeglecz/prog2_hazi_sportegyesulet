@@ -67,7 +67,7 @@ int main()
     string edzo="uhhh";
     int letszam=2;
     string medzo="kkkk";
-    //nyilv.add(new Foci(nev, letszam, edzo, medzo));
+//    nyilv.add(new Foci(nev, letszam, edzo, medzo));
 //    std::cout<<"faszom";
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,12));
 //    nyilv.addMeccs(2, new Meccs("BP", "Masik", 2010,12,12,12,13));

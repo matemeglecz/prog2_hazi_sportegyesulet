@@ -1,20 +1,22 @@
 #ifndef INTERFACE_H_INCLUDED
 #define INTERFACE_H_INCLUDED
+#include "nyilvantartas.h"
 
-enum Allapotok{fomenu, csapatlistaz, meccslistaz, meccsadd, meccstorol, csapatadd, csapattorol, csapatkeres, kilep};
+enum Allapotok{fomenu = 1, csapatlistaz  = 2, meccslistaz = 3, meccsadd = 4, meccstorol = 5, csapatadd = 6, csapattorol = 7, csapatkeres = 8, kilep = 0};
 
 class Interface{
     Allapotok allapot;
 public:
-    void control();
+    Interface() :allapot(fomenu) {}
+    void control(Nyilvantartas& nyilv);
     void mainMenu();
-    void listCsapat();
-    void listMeccs();
-    void addMeccs();
-    void deleteMeccs();
-    void addCsapat();
-    void deleteCsapat();
-    void searchCsapat();
+    void listCsapat(Nyilvantartas& nyilv);
+    void listMeccs(int hanyadik, Nyilvantartas& nyilv);
+    void addMeccs(int valasztottcsapat, Nyilvantartas& nyilv);
+    void deleteMeccs(int valasztottcsapat, int valasztottmeccs, Nyilvantartas& nyilv);
+    void addCsapat(Nyilvantartas& nyilv);
+    void deleteCsapat(Nyilvantartas& nyilv);
+    void searchCsapat(Nyilvantartas& nyilv);
     void quit();
 };
 

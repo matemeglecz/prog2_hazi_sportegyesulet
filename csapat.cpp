@@ -2,7 +2,7 @@
 #include "meccs.h"
 
 std::ostream& operator<<(std::ostream& os, const Csapat& cs) {
-    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo() << " Meccsek szama: " << cs.getMeccsek().getLen();
+    return os << cs.getNev() << " Letszam: " << cs.getLetszam() << " Edzo: " << cs.getEdzo();
 }
 
 void Csapat::kiir(std::ostream& os){
@@ -54,6 +54,15 @@ void Csapat::kiirMeccsek(std::ostream& os){
     for (Lista<Meccs>::Iterator it = meccsek.begin(); it != meccsek.end(); ++it) {
         it->kiir(os);
     }
+}
+
+std::istream& operator>>(std::istream& is, Csapat& cs){
+    is >> cs.csapatnev;
+    is.ignore(100, ':');
+    is >> cs.alapletszam;
+    is.ignore(6, ':');
+    is >> cs.edzo;
+    return is;
 }
 
 

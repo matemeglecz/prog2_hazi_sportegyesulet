@@ -13,6 +13,7 @@ void Nyilvantartas::mentes(const char* file){
     fout << csapatok.getLen() << std::endl;
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
         it->kiir(fout);
+        fout << it->getMeccsek().getLen() <<std::endl;
         it->kiirMeccsek(fout);
     }
     fout.close();
@@ -26,49 +27,26 @@ void Nyilvantartas::beolvas(const char* file){
     fin >> csapatokszama;
     for(int j=0; j<csapatokszama; j++){
         fin >> tipus;
-        fin >> nev;
-        fin.ignore(100, ':');
-        fin >> letszam;
-        fin.ignore(6, ':');
-        fin >> edzo;
-        fin.ignore(15, ':');
-        fin >> meccsekszama;
         if(tipus=="Foci:"){
-            std::string masodedzo;
-            fin.ignore(12, ':');
-            fin >> masodedzo;
-            add(new Foci(nev, letszam, edzo, masodedzo));
+            Foci* fp=new Foci;
+            fin >> (*fp);
+            add(fp);
         }
         else if(tipus=="Kosarlabda:"){
-             int pompom;
-            fin.ignore(23, ':');
-            fin >> pompom;
-            add(new Kosarlabda(nev, letszam, edzo, pompom));
+            Kosarlabda* kp=new Kosarlabda;
+            fin >> (*kp);
+            add(kp);
         }
         else if(tipus=="Kezilabda:"){
-            int tamogatas;
-            fin.ignore(10, ':');
-            fin >> tamogatas;
-            add(new Kezilabda(nev, letszam, edzo, tamogatas));
+            Kezilabda* kp=new Kezilabda;
+            fin >> (*kp);
+            add(kp);
         }
+        fin >> meccsekszama;
         for(int i=0; i<meccsekszama; i++){
-            std::string hely, ellen;
-            int ev, ora, perc, honap, nap;
-            fin.ignore(10, ':');
-            fin >> ellen;
-            fin.ignore(10, ':');
-            fin >> hely;
-            fin.ignore(6, ':');
-            fin >> ev;
-            fin.ignore(1, '.');
-            fin >> honap;
-            fin.ignore(1, '.');
-            fin >> nap;
-            fin.ignore(2, ' ');
-            fin >> ora;
-            fin.ignore(1, ':');
-            fin >> perc;
-            addMeccs(csapatok.getLen(), new Meccs(hely, ellen, ev, honap, nap, ora, perc));
+            Meccs* mp=new Meccs;
+            fin >> (*mp);
+            addMeccs(csapatok.getLen(), mp);
         }
     }
     listaz();
@@ -116,4 +94,23 @@ void Nyilvantartas::addMeccs(int hanyadik, Meccs* uj){
         it++;
     }
     it->addMeccs(uj);
+}
+
+void Nyilvantartas::kiirMeccs(int hanyadik){
+    if(hanyadik > csapatok.getLen()) throw "hibas meccs sorszam";
+    Lista<Csapat>::Iterator it=csapatok.begin();
+    for(int i=0; i<hanyadik-1; i++){
+        it++;
+    }
+    it->kiirMeccsek();
+}
+
+void Nyilvantartas::torolMeccs(int csapat, int meccs){
+    if(csapat > csapatok.getLen()) throw "hibas meccs sorszam";
+    Lista<Csapat>::Iterator it=csapatok.begin();
+    for(int i=0; i<csapat-1; i++){
+        it++;
+    }
+    try {it->torolMeccs(meccs);}
+    catch (const char *p){throw;}
 }
