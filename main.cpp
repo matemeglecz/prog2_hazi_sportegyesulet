@@ -7,6 +7,7 @@
 #include "memtrace.h"
 #include "meccs.h"
 #include "nyilvantartas.h"
+#include "interface.h"
 
 
 using namespace std;
@@ -60,7 +61,7 @@ int main()
 
     Nyilvantartas nyilv;
     //for(int i=0; i< 10; i++)
-    Nyilvantartas ny1;
+    //Nyilvantartas ny1;
     nyilv.beolvas("test.txt");
 
     string nev="ehhh";
@@ -74,6 +75,8 @@ int main()
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,14));
 //    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,15));
 //
+    Interface i;
+    i.control(nyilv);
     nyilv.mentes("test.txt");
 //    nyilv.listaz();
 //

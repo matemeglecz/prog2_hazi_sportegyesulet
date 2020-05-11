@@ -19,7 +19,7 @@ public:
     void addMeccs(int hanyadik, Meccs*);
     void torolMeccs(int csapat, int meccs);
     void add(Csapat* uj);
-    void torolElem(const string nev, int hanyadik);
+    void torolElem(const string nev, int hanyadik = 1);
     void kiirMeccs(int hanyadik);
     size_t getLen() {return csapatok.getLen();}
     ~Nyilvantartas() {csapatok.torol();}

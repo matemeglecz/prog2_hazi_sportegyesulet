@@ -49,7 +49,7 @@ void Nyilvantartas::beolvas(const char* file){
             addMeccs(csapatok.getLen(), mp);
         }
     }
-    listaz();
+    //listaz();
 
     fin.close();
 }
@@ -70,14 +70,16 @@ int Nyilvantartas::keresEskiir(const std::string nev){
     int talalat=0;
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
         if(it->getNev()==nev){
-            std::cout << talalat++ << ". ";
+            std::cout << ++talalat << ". ";
             it->kiir();
+            it->kiirMeccsek();
+            std::cout << endl;
         }
     }
     return talalat;
 }
 
-void Nyilvantartas::torolElem(const std::string nev, int hanyadik=1){
+void Nyilvantartas::torolElem(const std::string nev, int hanyadik){
     int talalat=0;
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
         if(it->getNev()==nev && ++talalat==hanyadik){

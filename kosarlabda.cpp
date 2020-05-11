@@ -5,7 +5,7 @@ void Kosarlabda::kiir(std::ostream& os){
 }
 
 std::ostream& operator<<(std::ostream& os, const Kosarlabda& k) {
-    return os << (Csapat&)k << " Pompom csapat letszama: " << k.getPomletszam();
+    return os << (Csapat&)k << ", Pompom csapat letszama: " << k.getPomletszam();
 }
 
 Kosarlabda& Kosarlabda::operator=(const Kosarlabda& rhs){
@@ -18,7 +18,7 @@ Kosarlabda& Kosarlabda::operator=(const Kosarlabda& rhs){
 
 std::istream& operator>>(std::istream& is, Kosarlabda& k){
     is >> (Csapat&)k;
-    is.ignore(23, ':');
+    is.ignore(24, ':');
     is >> k.pompomletszam;
     return is;
 }

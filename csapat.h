@@ -12,15 +12,7 @@ class Csapat{
     std::string edzo;
     Lista<Meccs> meccsek;
 public:
-    Csapat(std::string nev = "", int alapletszam = 0, std::string edzonev = "") :csapatnev(nev), alapletszam(alapletszam), edzo(edzonev) {
-//        csapatnev=new char[strlen(nev)+1];
-//        strcpy(csapatnev, nev);
-//        edzo=new char[strlen(edzonev)+1];
-//        strcpy(edzo, edzonev);
-    }
-
-
-    //Csapat(const Csapat& cs){*this=cs;}
+    Csapat(std::string nev = "", int alapletszam = 0, std::string edzonev = "") :csapatnev(nev), alapletszam(alapletszam), edzo(edzonev) {}
 
     virtual void kiir(std::ostream& os = std::cout);
 

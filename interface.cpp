@@ -1,191 +1,281 @@
 #include "interface.h"
 #include <iostream>
+#include "nyilvantartas.h"
+#include "foci.h"
+#include "kosarlabda.h"
+#include "kezilabda.h"
+#include "csapat.h"
+#include <cctype>
+#include <stdlib.h>
+#include "string.h"
 using namespace std;
 
+void Interface::vonalhuz(int hossz, char c) const{
+ for(int i=0; i<70; i++)
+        cout << "-";
+    cout << endl;
+}
+
+bool Interface::isNumber(const char* szam) const{
+    for(size_t i=0; i<strlen(szam); i++){
+        if(!isdigit(szam[i]))
+            return false;
+    }
+    return true;
+}
+
 void Interface::control(Nyilvantartas& nyilv){
-    int valasztas;
     int valasztottcsapat;
     while(1){
     switch(allapot){
-        case fomenu:
+        case Allapotok::fomenu:
             mainMenu();
-            cin >> valasztas;
-            while(allapot==fomenu){
-                switch(valasztas){
-                    case 1:
-                        allapot=csapatlistaz; break;
-                    case 2:
-                        allapot=csapatadd; break;
-                    case 3:
-                        allapot=csapattorol; break;
-                    case 4:
-                        kilep; break;
-                    default:
-                        cout << "Ilyen lehetõség nincs, próbálja újra" << endl; break;
-                }
-            }break;
-        case csapatlistaz:
-            listCsapat(nyilv);
-            while(allapot==csapatlistaz){
-                cin >> valasztas;
-                if(valasztas==0){
-                    allapot=fomenu;
-                }
-                else if(valasztas <=nyilv.getLen()){
-                    valasztottcsapat=valasztas;
-                    allapot=meccslistaz;
-                } else allapot=csapatlistaz;
-            } break;
-        case meccslistaz:
-            try{
-                listMeccs(valasztas, nyilv);
-            } catch (const char *p){
-                allapot=csapatlistaz;
-                break;
-            }
-            while(valasztas==meccslistaz){
-                cin >> valasztas;
-                switch(valasztas){
-                    case(0):
-                        allapot=fomenu; break;
-                    case(1):
-                        allapot=meccsadd; break;
-                    case(2):
-                        allapot=meccstorol; break;
-                    default:
-                        cout << "Ilyen lehetõség nincs, próbálja újra" << endl; break;
-                }
-            } break;
-        case meccsadd:
+            break;
+        case Allapotok::csapatlistaz:
+            valasztottcsapat=listCsapat(nyilv);
+            break;
+        case Allapotok::meccslistaz:
+            listMeccs(valasztottcsapat, nyilv);
+            break;
+        case Allapotok::meccsadd:
             addMeccs(valasztottcsapat, nyilv);
-            allapot=meccslistaz;
+            allapot=Allapotok::meccslistaz;
             break;
-        case meccstorol:
-            cout << "Adja be a törölni kívánt meccs sorszámát!" << endl;
-            int valasztottm;
-            while(allapot==meccstorol){
-                cin >>  valasztas;
-                if(valasztas==0){
-                    allapot=fomenu;
-                }
-                else{
-                    valasztas=valasztottm;
-                    allapot=meccslistaz;
-                    try{
-                        deleteMeccs(valasztottcsapat, valasztottm, nyilv);
-                    } catch (const char* p){
-                        cout << "Ilyen lehetõség nincs, próbálja újra" << endl;
-                        allapot=meccstorol;
-                    }
-                }
-            } break;
-        case csapatadd:
+        case Allapotok::meccstorol:
+            deleteMeccs(valasztottcsapat, nyilv);
+            break;
+        case Allapotok::csapatadd:
             addCsapat(nyilv);
-            allapot=fomenu;
+            allapot=Allapotok::fomenu;
             break;
-        case csapattorol:
+        case Allapotok::csapattorol:
             deleteCsapat(nyilv);
-            allapot=fomenu;
+            allapot=Allapotok::fomenu;
             break;
-        case csapatkeres:
-
-
-
+        case Allapotok::csapatkeres:
+            searchCsapat(nyilv);
+            allapot=Allapotok::fomenu;
+            break;
+        case Allapotok::kilep:
+            return;
     }
     }
 }
+
 
 void Interface::mainMenu(){
-    allapot=fomenu;
-    cout << "Menupont kivalasztasahoz a menüpontnak megfelelõ számot kell beadni!" << endl;
+    allapot=Allapotok::fomenu;
+    cout << "Menupont kivalasztasahoz a menupontnak megfelelo szamot kell beadni!" << endl;
     cout << "1. Csapatok listazasa" << endl << "2. Uj csapat hozzaadasa" << endl << "3. Csapat torlese" << endl <<
     "4. Csapat keresese" << endl << "5. Kilep" << endl;
+    int valasztas;
+    while(allapot==Allapotok::fomenu){
+        cin >> valasztas;
+        switch(valasztas){
+            case 1:
+                allapot=Allapotok::csapatlistaz; break;
+            case 2:
+                allapot=Allapotok::csapatadd; break;
+            case 3:
+                allapot=Allapotok::csapattorol; break;
+            case 5:
+                allapot=Allapotok::kilep; break;
+            case 4:
+                allapot=Allapotok::csapatkeres; break;
+            default:
+                cout << "Ilyen lehetoseg nincs, probalja ujra" << endl; break;
+        }
+    }
 }
 
-void Interface::listCsapat(Nyilvantartas& nyilv){
+int Interface::listCsapat(Nyilvantartas& nyilv){
+    vonalhuz();
     nyilv.listaz();
+    vonalhuz();
     cout << "A fomenube valo visszalepeshez adjon be 0-at!" << endl;
-    cout << "Adja be annak a csapaatnak a sorszamat, aminek a meccseit megkívánja tekinteni!" << endl;
+    cout << "Adja be annak a csapaatnak a sorszamat, aminek a meccseit megkivanja tekinteni!" << endl;
+    int valasztas;
+    while(allapot==Allapotok::csapatlistaz){
+        cin >> valasztas;
+        if(valasztas==0){
+            allapot=Allapotok::fomenu;
+        }
+        else if((unsigned)valasztas <=nyilv.getLen()){
+            allapot=Allapotok::meccslistaz;
+        } else allapot=Allapotok::csapatlistaz;
+    }
+    return valasztas;
 }
 
 void Interface::listMeccs(int hanyadik, Nyilvantartas& nyilv){
+    vonalhuz();
     try{
     nyilv.kiirMeccs(hanyadik);
     } catch (const char *p){
-        throw;
+        allapot=Allapotok::csapatlistaz;
+        return;
     }
+    vonalhuz();
+    int valasztas;
     cout << "0. Vissza a fomenube" << endl << "1. Meccs hozzadasa" << endl << "2. Meccs torlese" << endl;
+    cin >> valasztas;
+        switch(valasztas){
+            case(0):
+                allapot=Allapotok::fomenu; break;
+            case(1):
+                allapot=Allapotok::meccsadd; break;
+            case(2):
+                allapot=Allapotok::meccstorol; break;
+            default:
+                cout << "Ilyen lehetoseg nincs, probalja ujra" << endl; break;
+        }
 }
 
 void Interface::addMeccs(int valasztottcsapat, Nyilvantartas& nyilv){
     string ellen;
     string hely;
-    int ev,honap, nap, ora, perc;
+    char szam[50];
+    int ev, honap, nap, ora, perc;
     cout << "Ellenfel neve: ";
-    cin >> ellen;
+    cin.ignore(256,'\n');
+    getline(cin, ellen);
     cout << "Helyszin: ";
-    cin >> hely;
-    cout << "Datum: (ev.honap.nap. ora:perc)";
-    cin >> ev;
-    cin.ignore(1,'.');
-    cin >> honap;
-    cin.ignore(1,'.');
-    cin >> nap;
-    cin.ignore(2,' ');
-    cin >> ora;
-    cin.ignore(1,':');
-    cin >> perc;
+    getline(cin, hely);
+    cout << "Datum: "  << endl;
+    bool sikeres=false;
+    while(!sikeres){
+        cout << "Ev: ";
+        cin >> szam;
+        if(!isNumber(szam)){
+            cout << "Hibas ev, probalja ujra!" << endl;
+            cin.ignore(256, '\n');
+            continue;
+        }
+        ev=atoi(szam);
+
+        cout << "Honap: ";
+        cin >> szam;
+        honap=atoi(szam);
+        if(!isNumber(szam) || honap>12 || honap<1){
+            cout << "Hibas honap, probalja ujra!" << endl;
+            cin.ignore(256, '\n');
+            continue;
+        }
+
+        cout << "Nap: ";
+        cin >> szam;
+        nap=atoi(szam);
+        if(!isNumber(szam) || nap<1 || nap>31){
+            cout << "Hibas nap, probalja ujra!" << endl;
+            cin.ignore(256, '\n');
+            continue;
+        }
+
+        cout << "Ora: ";
+        cin >> szam;
+        ora=atoi(szam);
+        if(!isNumber(szam) || ora<0 || ora>24){
+            cout << "Hibas ora, probalja ujra!" << endl;
+            cin.ignore(256, '\n');
+            continue;
+        }
+
+        cout << "Perc: ";
+        cin >> szam;
+        perc=atoi(szam);
+        if(!isNumber(szam) || perc<0 || perc>59){
+            cout << "Hibas perc, probalja ujra!" << endl;
+            cin.ignore(256, '\n');
+            continue;
+        }
+        sikeres=true;
+    }
     Meccs* uj=new Meccs(hely, ellen, ev, honap , nap, ora, perc);
     nyilv.addMeccs(valasztottcsapat, uj);
 }
 
-void Interface::deleteMeccs(int valasztottcsapat, int valasztottmeccs, Nyilvantartas& nyilv){
-    try{
-        nyilv.torolMeccs(valasztottcsapat, valasztottmeccs);
-    } catch (const char *p){ throw;}
+void Interface::deleteMeccs(int valasztottcsapat, Nyilvantartas& nyilv){
+    cout << "Adja be a torolni kivant meccs sorszamat!" << endl;
+    int valasztottm;
+    while(allapot==Allapotok::meccstorol){
+        cin >>  valasztottm;
+        if(valasztottm==0){
+            allapot=Allapotok::fomenu;
+        }
+        else{
+            allapot=Allapotok::meccslistaz;
+            try{
+                nyilv.torolMeccs(valasztottcsapat, valasztottm);
+            } catch (const char* p){
+                cout << "Ilyen lehetoseg nincs, probalja ujra" << endl;
+                allapot=Allapotok::meccstorol;
+            }
+        }
+    }
 }
 
 void Interface::addCsapat(Nyilvantartas& nyilv){
-    cout << "Valassza ki a csapat fajtáját!" << endl;
+    cout << "Valassza ki a csapat fajtajat!" << endl;
     cout << "1. Foci" << endl << "2. Kosar" << endl << "3. Kezilabda" << endl;
     int valasztas = 0;
     while(valasztas>3 || valasztas < 1)
         cin >> valasztas;
-    string nev, edzo;
-    int letszam;
-    cout << "Csapat neve: ";
-    cin >> nev;
-    cout << "Alapletszama: ";
-    cin >> letszam;
-    cout << "Edzo neve: ";
-    cin >> edzo;
-    switch(valasztas){
-        case 1:
-            string medzo;
-            cout << "Masodedzo neve: ";
-            cin >> medzo;
-            nyilv.add(new Foci(nev, letszam, edzo, medzo));
-            break;
-        case 2:
-            int pompom;
-            cout << "Pom-pomcsapat letszama: ";
-            cin >> pompom;
-            nyilv.add(new Kosarlabda(nev, letszam, edzo, pompom));
-            break;
-        case 3:
-            int tamogatas;
-            cout << "Tamogatas: ";
-            cin >> tamogatas;
-            nyilv.add(new Kezilabda(nev, letszam, edzo, tamogatas));
-            break;
+    bool sikeres=false;
+    while(!sikeres){
+        string nev, edzo;
+        char letszam[20];
+        cout << "Csapat neve: ";
+        cin.ignore(256,'\n');
+        getline(cin, nev);
+        cout << "Alapletszama: ";
+        cin >> letszam;
+        if(!isNumber(letszam)){
+            cout << "Hibas bemenet, probalja ujra!" << endl;
+            continue;
+        }
+        cout << "Edzo neve: ";
+        cin.ignore(256,'\n');
+        getline(cin, edzo);
+        switch(valasztas){
+            case 1:{
+                string medzo;
+                cout << "Masodedzo neve: ";
+                getline(cin, medzo);
+                nyilv.add(new Foci(nev, atoi(letszam), edzo, medzo));
+                break;}
+            case 2:{
+                char pompom[20];
+                cout << "Pom-pomcsapat letszama: ";
+                cin >> pompom;
+                if(!isNumber(pompom)){
+                    cout << "Hibas bemenet, probalja ujra!" << endl;
+                    continue;
+                }
+                nyilv.add(new Kosarlabda(nev, atoi(letszam), edzo, atoi(pompom)));
+                break;}
+            case 3:{
+                char tamogatas[20];
+                cout << "Tamogatas: ";
+                cin >> tamogatas;
+                if(!isNumber(tamogatas)){
+                    cout << "Hibas bemenet, probalja ujra!" << endl;
+                    continue;
+                }
+                nyilv.add(new Kezilabda(nev, atoi(letszam), edzo, atoi(tamogatas)));
+                break;}
+        }
+        sikeres=true;
     }
 }
 
 void Interface::deleteCsapat(Nyilvantartas& nyilv){
     cout << "Torolni kivant csapat pontos neve: ";
     string torolnev;
-    cin >> torolnev;
+    cin.ignore(256, '\n');
+    getline(cin, torolnev);
+    vonalhuz();
     int talalat=nyilv.keresEskiir(torolnev);
+    vonalhuz();
     if(talalat==0)
         cout << "Nincs ilyen csapat" << endl;
     else if(talalat==1)
@@ -195,8 +285,19 @@ void Interface::deleteCsapat(Nyilvantartas& nyilv){
         while(valasztas>talalat){
             cout << "Valassza a torolni kivant csapatot!" << endl;
             cin >> valasztas;
-            if(valasztas>talalat) cout << "Ilyen lehetõség nincs, próbálja újra" << endl;
+            if(valasztas>talalat) cout << "Ilyen lehetoseg nincs, probalja ujra" << endl;
         }
         nyilv.torolElem(torolnev, valasztas);
     }
+}
+
+void Interface::searchCsapat(Nyilvantartas& nyilv){
+    string keresett;
+    cout << "A keresett csapat pontos neve: ";
+    cin.ignore(256, '\n');
+    getline(cin, keresett);
+    vonalhuz();
+    if(nyilv.keresEskiir(keresett)==0)
+        cout << "Nincs talalat" << endl;
+    vonalhuz();
 }

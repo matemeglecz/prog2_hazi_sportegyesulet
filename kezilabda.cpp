@@ -5,7 +5,7 @@ void Kezilabda::kiir(std::ostream& os){
 }
 
 std::ostream& operator<<(std::ostream& os, const Kezilabda& k) {
-    return os << (Csapat&)k << " tamogatas: " << k.getTamogatas();
+    return os << (Csapat&)k << ", tamogatas: " << k.getTamogatas();
 }
 
 Kezilabda& Kezilabda::operator=(const Kezilabda& rhs){
@@ -18,7 +18,7 @@ Kezilabda& Kezilabda::operator=(const Kezilabda& rhs){
 
 std::istream& operator>>(std::istream& is, Kezilabda& k){
     is >> (Csapat&)k;
-    is.ignore(10, ':');
+    is.ignore(11, ':');
     is >> k.tamogatas;
     return is;
 }

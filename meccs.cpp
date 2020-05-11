@@ -5,7 +5,7 @@ void Meccs::kiir(std::ostream& os){
 }
 
 std::ostream& operator<<(std::ostream& os, const Meccs& m) {
-    return os << "Ellenfel: " << m.getEllenfel() << " Helyszin: " << m.getHelyszin() << " Datum: " << m.getDatum();
+    return os << "Ellenfel: " << m.getEllenfel() << ", Helyszin: " << m.getHelyszin() << ", Datum: " << m.getDatum();
 }
 
 Meccs& Meccs::operator=(const Meccs& rhs){
@@ -24,11 +24,13 @@ Meccs& Meccs::operator=(const Meccs& rhs){
 }
 
 std::istream& operator>>(std::istream& is, Meccs& m){
-    is.ignore(10, ':');
-    is >> m.ellenfel;
-    is.ignore(10, ':');
-    is >> m.helyszin;
-    is.ignore(6, ':');
+    is.ignore(50, ':');
+    is.ignore(1, ' ');
+    getline(is, m.ellenfel, ',');
+    is.ignore(12, ':');
+    is.ignore(1, ' ');
+    getline(is, m.helyszin, ',');
+    is.ignore(8, ':');
     int ev, ora, perc, honap, nap;
     is >> ev;
     is.ignore(1, '.');
