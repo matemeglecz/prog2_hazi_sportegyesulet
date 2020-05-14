@@ -4,8 +4,10 @@
 #include "kosarlabda.h"
 #include "kezilabda.h"
 #include "gtest_lite.h"
+#include "csapat.h"
 
 void test(){
+
     //foci test
     Foci f1("Focika", 21, "Jani", "Pisti");
 
@@ -29,7 +31,8 @@ void test(){
 
 
     //operator=
-    Foci f2=f1;
+    Foci f2;
+    f2=f1;
 
     TEST(focim, nev){
         EXPECT_EQ("Focika", f2.getNev())<<"nem jo a moasolas";
@@ -106,7 +109,8 @@ void test(){
         EXPECT_EQ(500000000, kezi.getTamogatas())<<"nem jo a tamogatas";
     }ENDM
 
-    Kezilabda kezi2=kezi;
+    Kezilabda kezi2;
+    kezi2=kezi;
 
     TEST(kezim, nev){
         EXPECT_EQ("Kezi tobb szoval es szammal", kezi2.getNev())<<"nem jo a moasolas";

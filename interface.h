@@ -20,7 +20,6 @@ public:
     void addCsapat(Nyilvantartas& nyilv);
     void deleteCsapat(Nyilvantartas& nyilv);
     void searchCsapat(Nyilvantartas& nyilv);
-    void quit();
 
     void vonalhuz(int hossz = 100, char c = '-') const;
     bool isNumber(const char* szam) const;

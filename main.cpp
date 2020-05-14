@@ -16,23 +16,6 @@ int main()
 {
     test();
 
-//
-////   Foci f3=f1;
-////   std::cout<<"kesz";
-////   f3.kiir();
-//
-//    Meccs m1("BP", "Masik", 2010,12,12,12,12);
-//    /*Meccs* m2=new Meccs;
-//    *m2=m1;
-//    std::cout << m2->getEllenfel();
-//    m2->kiir();*/
-//    f1.addMeccs(new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    f1.addMeccs(new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    f1.addMeccs(new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    f1.addMeccs(new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    f1.addMeccs(new Meccs("BP", "Masik", 2010,12,12,12,12));
-
-
     Nyilvantartas nyilv;
     try{
         nyilv.beolvas();
@@ -50,14 +33,6 @@ int main()
         cout << "Nem sikerult megnyitni a fajlt." << endl;
         return 0;
     }
-
-
-//    nyilv.add(new Foci(nev, letszam, edzo, medzo));
-//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,12));
-//    nyilv.addMeccs(2, new Meccs("BP", "Masik", 2010,12,12,12,13));
-//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,14));
-//    nyilv.addMeccs(1, new Meccs("BP", "Masik", 2010,12,12,12,15));
-
 
     return 0;
 }

@@ -226,7 +226,7 @@ void Interface::addCsapat(Nyilvantartas& nyilv){
     bool sikeres=false;
     while(!sikeres){
         string nev, edzo;
-        char letszam[20];
+        char letszam[20]; // 20 jegynél valószínûleg nem lesz nagyobb a szám
         cout << "Csapat neve: ";
         cin.ignore(256,'\n');
         getline(cin, nev);
@@ -247,7 +247,7 @@ void Interface::addCsapat(Nyilvantartas& nyilv){
                 nyilv.add(new Foci(nev, atoi(letszam), edzo, medzo));
                 break;}
             case 2:{
-                char pompom[20];
+                char pompom[20]; // 20 jegynél valószínûleg nem lesz nagyobb a szám
                 cout << "Pom-pomcsapat letszama: ";
                 cin >> pompom;
                 if(!isNumber(pompom)){
@@ -257,7 +257,7 @@ void Interface::addCsapat(Nyilvantartas& nyilv){
                 nyilv.add(new Kosarlabda(nev, atoi(letszam), edzo, atoi(pompom)));
                 break;}
             case 3:{
-                char tamogatas[20];
+                char tamogatas[20]; // 20 jegynél valószínûleg nem lesz nagyobb a szám
                 cout << "Tamogatas: ";
                 cin >> tamogatas;
                 if(!isNumber(tamogatas)){
@@ -282,7 +282,7 @@ void Interface::deleteCsapat(Nyilvantartas& nyilv){
         cout << "Nincs ilyen csapat" << endl;
         vonalhuz();}
     else if(talalat==1){
-        nyilv.torolElem(torolnev);
+        nyilv.torolCsapat(torolnev);
         vonalhuz();}
     else{
         vonalhuz();
@@ -292,7 +292,7 @@ void Interface::deleteCsapat(Nyilvantartas& nyilv){
             cin >> valasztas;
             if(valasztas>talalat) cout << "Ilyen lehetoseg nincs, probalja ujra" << endl;
         }
-        nyilv.torolElem(torolnev, valasztas);
+        nyilv.torolCsapat(torolnev, valasztas);
     }
 }
 

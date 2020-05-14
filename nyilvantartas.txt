@@ -1,1 +1,11 @@
+3
+Foci: Elso Foci csapat, Letszam: 21, Edzo: Jani ba , Masodedzo: Pisti ba
+3
+1. Ellenfel: Ellenseges csapat, Helyszin: Budapest, Datum: 2010.12.12. 12:12
+2. Ellenfel: Baratsagos csapat, Helyszin: Newyork, Datum: 2020.5.12. 12:14
+3. Ellenfel: Szomszedok, Helyszin: India, Datum: 2021.1.1. 10:20
+Kosarlabda: Szuper kosarasok, Letszam: 40, Edzo: edzo bacsi, Pompom csapat letszama: 40
+1
+1. Ellenfel: Balkezesek, Helyszin: Szolnok, Datum: 2000.10.20. 10:30
+Kezilabda: Jobbkezesek, Letszam: 30, Edzo: Szuper Erno, tamogatas: 770000
 0

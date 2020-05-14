@@ -89,7 +89,7 @@ int Nyilvantartas::keresEskiir(const std::string nev){
     return talalat;
 }
 
-void Nyilvantartas::torolElem(const std::string nev, int hanyadik){
+void Nyilvantartas::torolCsapat(const std::string nev, int hanyadik){
     int talalat=0;
     for(Lista<Csapat>::Iterator it=csapatok.begin(); it!=csapatok.end(); it++){
         if(it->getNev()==nev && ++talalat==hanyadik){

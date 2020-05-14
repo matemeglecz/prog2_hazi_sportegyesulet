@@ -139,7 +139,7 @@
 1589118056 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.cpp
 	"lista.h"
 
-1589238637 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
+1589282206 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\main.cpp
 	<iostream>
 	"foci.h"
 	"kosarlabda.h"
@@ -189,7 +189,7 @@
 1589215768 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\lista.h
 	<iostream>
 
-1589237923 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.cpp
+1589283873 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.cpp
 	"nyilvantartas.h"
 	"lista.hpp"
 	<fstream>
@@ -199,12 +199,12 @@
 	"kosarlabda.h"
 	"kezilabda.h"
 
-1589217223 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.h
+1589284069 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\nyilvantartas.h
 	"csapat.h"
 	"lista.hpp"
 	<string>
 
-1589238785 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\interface.cpp
+1589283873 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\interface.cpp
 	"interface.h"
 	<iostream>
 	"nyilvantartas.h"
@@ -216,7 +216,7 @@
 	<stdlib.h>
 	"string.h"
 
-1589215213 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\interface.h
+1589292126 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\interface.h
 	"nyilvantartas.h"
 	<string>
 
@@ -225,11 +225,12 @@
 
 1589217223 c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\test.h
 
-1589235857 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\test.cpp
+1589282847 source:c:\projects\codeblocks\prog2\prog2_hazi_sportegyesulet\test.cpp
 	"test.h"
 	<iostream>
 	"foci.h"
 	"kosarlabda.h"
 	"kezilabda.h"
 	"gtest_lite.h"
+	"csapat.h"
 
