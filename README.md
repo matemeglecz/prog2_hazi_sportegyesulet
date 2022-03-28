@@ -22,7 +22,7 @@ helyszínét.
 kívánunk létrehozni (foci, kosár, kézi), ezek után a program bekéri a csapat nevét(nem 
 lehet benne ’,’, alaplétszámát, edzőjének a nevét, foci esetén a másik edző nevét, kosárnál 
 a pom-pom csapat létszámát, kézicsapatnál a támogatás összegét.
-* Ha a csapat törlése menüpontot válasszuk, akkor a program bekéri a törölni kívánt csapat 
+* Ha a csapat törlése menüpontot választjuk, akkor a program bekéri a törölni kívánt csapat 
 pontos nevét, kilistázza azokat a csapatokat, amelyeknek ez a neve, ha több csapatnál is 
 talál egyezést, akkor ki kell választani, hogy melyiket kívánjuk törölni.
 * A keresés menüpontban egy csapat nevére lehet keresni, ha több egyezés is van akkor az 
